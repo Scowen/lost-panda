@@ -1,0 +1,61 @@
+<?php
+
+use yii\db\Schema;
+use yii\db\Migration;
+
+class m160317_094509_create_table_account extends Migration
+{
+    public function up()
+    {
+        $this->createTable(
+            '{{account}}',
+            array(
+                'id'                    => $this->primaryKey(),
+                'user'                  => $this->integer()->notNull(),
+                'name'                  => $this->string(30)->notNull(),
+                'created'               => $this->timestamp()->notNull(),
+                'last_active'           => $this->integer(),
+                'health'                => $this->integer(3)->notNull()->defaultValue(100),
+                'squad'                 => $this->integer(),
+                'money'                 => $this->double()->notNull()->defaultValue(0),
+                'bullets'               => $this->double()->notNull()->defaultValue(0),
+                'experience'            => $this->double()->notNull()->defaultValue(0),
+                'experience_prison'     => $this->double()->notNull()->defaultValue(0),
+                'timer_steal_weapon'    => $this->integer()->notNull()->defaultValue(0),
+                'timer_steal_vehicle'   => $this->integer()->notNull()->defaultValue(0),
+                'timer_steal_aircraft'  => $this->integer()->notNull()->defaultValue(0),
+                'timer_operation'       => $this->integer()->notNull()->defaultValue(0),
+                'timer_mission'         => $this->integer()->notNull()->defaultValue(0),
+                'timer_rescue'          => $this->integer()->notNull()->defaultValue(0),
+                'timer_prison'          => $this->integer()->notNull()->defaultValue(0),
+                'timer_hospital'        => $this->integer()->notNull()->defaultValue(0),
+                'timer_fly'             => $this->integer()->notNull()->defaultValue(0),
+            ),
+            implode(' ', array(
+                'ENGINE          = InnoDB',
+                'DEFAULT CHARSET = utf8',
+                'COLLATE         = utf8_general_ci',
+                'COMMENT         = ""',
+                'AUTO_INCREMENT  = 1',
+            ))
+        );
+    }
+
+    public function down()
+    {   
+        $this->dropTable("{{account}}");
+
+        return true;
+    }
+
+    /*
+    // Use safeUp/safeDown to run migration code within a transaction
+    public function safeUp()
+    {
+    }
+
+    public function safeDown()
+    {
+    }
+    */
+}

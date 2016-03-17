@@ -17,9 +17,7 @@ class m151216_125433_insert_users extends Migration
 
     public function down()
     {
-        echo "m151216_125433_insert_users cannot be reverted.\n";
-
-        return false;
+        $this->truncateTable("{{user}}");
     }
 
     /*
