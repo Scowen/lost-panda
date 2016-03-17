@@ -206,6 +206,7 @@ AppAsset::register($this);
                         <li id="menu-treeview-link3"><?= Html::a('<i class="fa fa-circle-o"></i> Link 3</a></li>', ['treeview/link3']); ?></li>
                     </ul>
                 </li>
+            </ul>
         </section>
         <!-- /.sidebar -->
     </aside>
@@ -216,6 +217,7 @@ AppAsset::register($this);
             <?= $content ?>
         </section>
     </div>
+</div>
 
     <script>
     $(document).ready( function() {

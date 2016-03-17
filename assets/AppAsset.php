@@ -28,6 +28,8 @@ class AppAsset extends AssetBundle
         'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
         'third/AdminLTE-2.3.0/plugins/jvectormap/jquery-jvectormap-2.0.3.css',
         'third/AdminLTE-2.3.0/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+        'third/AdminLTE-2.3.0/plugins/datatables/dataTables.bootstrap.css',
+        'third/AdminLTE-2.3.0/plugins/daterangepicker/daterangepicker-bs3.css',
     ];
     public $js = [
         'third/bootstrap/js/bootstrap.min.js',
@@ -36,9 +38,12 @@ class AppAsset extends AssetBundle
         'js/main.js',
         'third/AdminLTE-2.3.0/dist/js/app.min.js',
         'third/AdminLTE-2.3.0/plugins/chartjs/Chart.min.js',
-        'third/AdminLTE-2.3.0/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js',
-        'third/AdminLTE-2.3.0/plugins/jvectormap/uk_countries_mill.js',
         'third/AdminLTE-2.3.0/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
+        'third/AdminLTE-2.3.0/plugins/datatables/jquery.dataTables.min.js',
+        'third/AdminLTE-2.3.0/plugins/datatables/dataTables.bootstrap.min.js',
+        'third/AdminLTE-2.3.0/plugins/slimScroll/jquery.slimscroll.min.js',
+        'third/AdminLTE-2.3.0/plugins/daterangepicker/daterangepicker.js',
+        'third/AdminLTE-2.3.0/plugins/daterangepicker/moment.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
