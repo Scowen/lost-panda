@@ -41,7 +41,7 @@ AppAsset::register($this);
                 color: #EEE;
             }
 
-            
+
         </style>
     </head>
     <body class="hold-transition fixed sidebar-mini">
@@ -59,22 +59,25 @@ AppAsset::register($this);
                                     <span class="sr-only">Toggle navigation</span>
                                 </a>
 
-                                <div class="navbar-custom-menu pull-left">
+                                <div class="navbar-custom-menu">
                                     <ul class="nav navbar-nav">
-                                        <li style="background: rgba(0, 166, 90, 0.1);">
+                                        <li style="background: rgba(0, 166, 90, 0.03);">
                                             <?= Html::a("Money: $1337", ['/bank']); ?>
                                         </li>
-                                        <li style="background: rgba(221, 75, 57, 0.1);">
+                                        <li style="background: rgba(136, 0, 239, 0.03);">
                                             <?= Html::a("Bullets: 337", ['/bf']); ?>
                                         </li>
-                                        <li style="background: rgba(243, 156, 18, 0.1);">
+                                        <li style="background: rgba(243, 156, 18, 0.03);">
                                             <?= Html::a("Gold: 7", ['/gold']); ?>
+                                        </li>
+                                        <li style="background: rgba(221, 75, 57, 0.03);">
+                                            <?= Html::a("Health: 100", ['/hospital']); ?>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <!-- Navbar Right Menu -->
-                                <div class="navbar-custom-menu">
+                                <div class="navbar-custom-menu pull-left">
                                     <ul class="nav navbar-nav">
                                         <!-- Messages: style can be found in dropdown.less-->
                                         <li class="dropdown messages-menu">
@@ -126,60 +129,6 @@ AppAsset::register($this);
                                                 </li>
                                             </ul>
                                         </li>
-                                        <!-- Tasks: style can be found in dropdown.less -->
-                                        <li class="dropdown tasks-menu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="fa fa-flag-o"></i>
-                                                <span class="label label-danger">X</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="header">You have X tasks</li>
-                                                <li>
-                                                    <!-- inner menu: contains the actual data -->
-                                                    <ul class="menu">
-                                                        <!-- <li>
-                                                            <a href="#">
-                                                                <h3>
-                                                                    Make beautiful transitions
-                                                                    <small class="pull-right">80%</small>
-                                                                </h3>
-                                                                <div class="progress xs">
-                                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                                        <span class="sr-only">80% Complete</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </li> -->
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                        <!-- User Account: style can be found in dropdown.less -->
-                                        <li class="dropdown user user-menu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <img src="<?= $profileImage ?>" class="user-image" alt="User Image">
-                                                <span class="hidden-xs"><?= $user->username ?></span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <!-- User image -->
-                                                <li class="user-header">
-                                                    <img src="<?= $profileImage ?>" class="img-circle" alt="User Image">
-                                                    <p>
-                                                        <?= $user->username ?>
-                                                        <small>User Rank</small>
-                                                    </p>
-                                                </li>
-                                                <li class="user-footer">
-                                                    <div class="pull-left">
-                                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                                    </div>
-                                                    <div class="pull-right">
-                                                        <?= Html::a("Log Out", ['/site/logout'], ['class' => 'btn btn-default btn-flat']); ?>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
                                     </ul>
                                 </div>
                             </nav>
@@ -196,7 +145,20 @@ AppAsset::register($this);
                                     </div>
                                     <div class="pull-left info">
                                         <p><?= $user->username ?></p>
-                                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <?= Html::a("Civilian", ['/rank']); ?>
+                                            </div>
+                                            <div class="col-xs-4 text-right" style="color: #DDD">
+                                                45%
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12" style="padding-top:5px; padding-left: 15px; padding-right: 15px">
+                                                <div style="height:1px; background:rgba(0, 166, 90, 0.8); float:left; width:45%;"></div>
+                                                <div style="height:1px; background:rgba(51, 51, 51, 0.8); float:left; width:55%;"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- search form -->
@@ -211,16 +173,33 @@ AppAsset::register($this);
                                 <!-- /.search form -->
                                 <!-- sidebar menu: : style can be found in sidebar.less -->
                                 <ul class="sidebar-menu" style="overflow: hidden;">
-                                    <li class="header">SECTION HEADER</li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li class="treeview" id="treeview-treeview">
+                                    <!-- <li class="header">SECTION HEADER</li> -->
+                                    <li id="menu-forum"><?= Html::a('<i class="fa fa-comments"></i> <span>Forums</span>', ['/forum']); ?></li>
+                                    <li class="treeview" id="treeview-gameplay">
                                         <a href="#">
-                                            <i class="fa fa-treeview"></i> <span>Treeview</span> <i class="fa fa-angle-left pull-right"></i>
+                                            <i class="fa fa-star-half-o"></i> <span>GAMEPLAY</span> <i class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu">
-                                            <li id="menu-treeview-link1"><?= Html::a('<i class="fa fa-circle-o"></i> Link 1</a></li>', ['treeview/link1']); ?></li>
-                                            <li id="menu-treeview-link2"><?= Html::a('<i class="fa fa-circle-o"></i> Link 2</a></li>', ['treeview/link2']); ?></li>
-                                            <li id="menu-treeview-link3"><?= Html::a('<i class="fa fa-circle-o"></i> Link 3</a></li>', ['treeview/link3']); ?></li>
+                                            <li id="menu-steal-weapon"><?= Html::a('<i class="fa fa-circle-o"></i> Rob Munitions</a></li>', ['/steal/weapon']); ?></li>
+                                            <li id="menu-steal-vehicle"><?= Html::a('<i class="fa fa-circle-o"></i> Steal a Vehicle</a></li>', ['/steal/vehicle']); ?></li>
+                                            <li id="menu-steal-aircraft"><?= Html::a('<i class="fa fa-circle-o"></i> Hijack an Aircraft</a></li>', ['/steal/aircraft']); ?></li>
+                                            <li id="menu-operation"><?= Html::a('<i class="fa fa-circle-o"></i> Operation</a></li>', ['/operation']); ?></li>
+                                            <li id="menu-hunt"><?= Html::a('<i class="fa fa-circle-o"></i> Hunting</a></li>', ['/hunt']); ?></li>
+                                            <li id="menu-mission"><?= Html::a('<i class="fa fa-circle-o"></i> Missions</a></li>', ['/mission']); ?></li>
+                                            <li id="menu-inventory"><?= Html::a('<i class="fa fa-circle-o"></i> Inventory</a></li>', ['/inventory']); ?></li>
+                                            <li id="menu-garage"><?= Html::a('<i class="fa fa-circle-o"></i> Garage</a></li>', ['/vehicle']); ?></li>
+                                            <li id="menu-hangar"><?= Html::a('<i class="fa fa-circle-o"></i> Hangar</a></li>', ['/aircraft']); ?></li>
+                                            <li id="menu-prison"><?= Html::a('<i class="fa fa-circle-o"></i> Prison</a></li>', ['/prison']); ?></li>
+                                            <li id="menu-market"><?= Html::a('<i class="fa fa-circle-o"></i> Marketplace</a></li>', ['/market']); ?></li>
+                                        </ul>
+                                    </li>
+                                    <li class="treeview" id="treeview-stats">
+                                        <a href="#">
+                                            <i class="fa fa-trophy"></i> <span>STATISTICS</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li id="menu-stats-personal"><?= Html::a('<i class="fa fa-circle-o"></i> Your Stats</a></li>', ['/stats/personal']); ?></li>
+                                            <li id="menu-stats-round"><?= Html::a('<i class="fa fa-circle-o"></i> Round Stats</a></li>', ['/stats/round']); ?></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -230,6 +209,10 @@ AppAsset::register($this);
 
                         <div class="content-wrapper">
                             <section class="content">
+                                <div class="alert alert-info">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Title!</strong> Alert body ...
+                                </div>
                                 <?= $content ?>
                             </section>
                         </div>

@@ -93,3 +93,16 @@ li.header {
 .alert {
     border-radius: 0px !important;
 }
+
+.sidebar-menu>li>a {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.sidebar-menu>li>ul>li>a>i {
+    color: #555;
+}
+
+.sidebar-menu>li:hover, .sidebar-menu>li.active {
+    background: rgba(51, 51, 51, 0.4);
+}
