@@ -30,6 +30,7 @@ class AppAsset extends AssetBundle
         'third/AdminLTE-2.3.0/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
         'third/AdminLTE-2.3.0/plugins/datatables/dataTables.bootstrap.css',
         'third/AdminLTE-2.3.0/plugins/daterangepicker/daterangepicker-bs3.css',
+        'css/adminlte.css',
     ];
     public $js = [
         'third/bootstrap/js/bootstrap.min.js',

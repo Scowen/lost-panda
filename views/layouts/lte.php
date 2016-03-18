@@ -33,48 +33,15 @@ AppAsset::register($this);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <style>
             body {
-                background-image: url("<?php echo Yii::$app->request->baseUrl; ?>/images/bg.png");
+                background: url("<?php echo Yii::$app->request->baseUrl; ?>/images/bg.png") no-repeat center center fixed;
+                -moz-background-size: cover;
+                -webkit-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
                 color: #EEE;
             }
 
-            .fixed .main-header {
-                top: auto !important;  
-                right: auto !important;  
-                left: auto !important;  
-            }
-
-            .fixed .main-header, .fixed .main-sidebar, .fixed .left-side {
-                position: relative !important; 
-            }
-
-            .main-sidebar, .left-side {
-                padding-top: 0px !important;
-            }
-
-            #content-outer {
-                background: rgba(51, 51, 51, 0.8);
-                border-radius: 5px;
-            }
-
-            #wrapper {
-                overflow-y: hidden !important;
-            }
-
-            @media (min-width: 1200px) { 
-                #wrapper {
-                    padding-top: 25px;
-                    padding-bottom: 25px;
-                }
-            }
-
-            .height-100 {
-                height: 100%;
-            }
-
-            .modal-body{
-                max-height: calc(100vh - 200px);
-                overflow-y: auto;
-            }
+            
         </style>
     </head>
     <body class="hold-transition fixed sidebar-mini">
@@ -84,13 +51,28 @@ AppAsset::register($this);
 
                     <div class="wrapper">
                         <header class="main-header">
-                            <?= Html::a('<span class="logo-mini"><b>PT</b></span><span class="logo-lg"><b>Project</b> Title</span>', ['/admin'], ['class' => 'logo']); ?>
+                            <?= Html::a('<span class="logo-mini"><b>PT</b></span><span class="logo-lg"><b>Project</b> Title</span>', ['/'], ['class' => 'logo']); ?>
                             <!-- Header Navbar: style can be found in header.less -->
                             <nav class="navbar navbar-static-top" role="navigation">
                                 <!-- Sidebar toggle button-->
                                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                                     <span class="sr-only">Toggle navigation</span>
                                 </a>
+
+                                <div class="navbar-custom-menu pull-left">
+                                    <ul class="nav navbar-nav">
+                                        <li style="background: rgba(0, 166, 90, 0.1);">
+                                            <?= Html::a("Money: $1337", ['/bank']); ?>
+                                        </li>
+                                        <li style="background: rgba(221, 75, 57, 0.1);">
+                                            <?= Html::a("Bullets: 337", ['/bf']); ?>
+                                        </li>
+                                        <li style="background: rgba(243, 156, 18, 0.1);">
+                                            <?= Html::a("Gold: 7", ['/gold']); ?>
+                                        </li>
+                                    </ul>
+                                </div>
+
                                 <!-- Navbar Right Menu -->
                                 <div class="navbar-custom-menu">
                                     <ul class="nav navbar-nav">
@@ -188,19 +170,6 @@ AppAsset::register($this);
                                                         <small>User Rank</small>
                                                     </p>
                                                 </li>
-                                                <!-- Menu Body -->
-                                                    <!-- <li class="user-body">
-                                                    <div class="col-xs-4 text-center">
-                                                        <a href="#">Followers</a>
-                                                    </div>
-                                                    <div class="col-xs-4 text-center">
-                                                        <a href="#">Sales</a>
-                                                    </div>
-                                                    <div class="col-xs-4 text-center">
-                                                        <a href="#">Friends</a>
-                                                    </div>
-                                                </li> -->
-                                                <!-- Menu Footer-->
                                                 <li class="user-footer">
                                                     <div class="pull-left">
                                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
@@ -244,58 +213,6 @@ AppAsset::register($this);
                                 <ul class="sidebar-menu" style="overflow: hidden;">
                                     <li class="header">SECTION HEADER</li>
                                     <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
-                                    <li id="menu-section-direct"><?= Html::a('<i class="fa fa-dashboard"></i> <span>Direct Link</span>', ['section/direct']); ?></li>
                                     <li class="treeview" id="treeview-treeview">
                                         <a href="#">
                                             <i class="fa fa-treeview"></i> <span>Treeview</span> <i class="fa fa-angle-left pull-right"></i>
@@ -311,14 +228,12 @@ AppAsset::register($this);
                             <!-- /.sidebar -->
                         </aside>
 
-                        <!-- Content Wrapper. Contains page content -->
                         <div class="content-wrapper">
-                            <section class="content" style="height:100%">
+                            <section class="content">
                                 <?= $content ?>
                             </section>
                         </div>
                     </div>
-
                 </div>
             </div>
         <?php $this->endBody() ?>
