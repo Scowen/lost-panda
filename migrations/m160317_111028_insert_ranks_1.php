@@ -8,7 +8,7 @@ class m160317_111028_insert_ranks_1 extends Migration
     public function up()
     {
         $this->insert("{{rank}}", array(
-            'name' => 'Civilian',
+            'name' => 'Volunteer',
         ));
         $this->insert("{{rank_prison}}", array(
             'name' => 'Novice',

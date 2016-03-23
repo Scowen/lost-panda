@@ -61,18 +61,10 @@ AppAsset::register($this);
 
                                 <div class="navbar-custom-menu hidden-xs">
                                     <ul class="nav navbar-nav">
-                                        <li style="">
-                                            <?= Html::a("<i class='fa fa-dollar text-green'></i> 132,456,789", ['/bank'], ['title' => 'Money']); ?>
-                                        </li>
-                                        <li style="">
-                                            <?= Html::a("<i class='fa fa-bullseye text-teal'></i> 132,456,789", ['/bf'], ['title' => 'Bullets']); ?>
-                                        </li>
-                                        <li style="">
-                                            <?= Html::a("<i class='fa fa-diamond text-yellow'></i> 50,000", ['/diamond'], ['title' => 'Diamonds']); ?>
-                                        </li>
-                                        <li style="">
-                                            <?= Html::a("<i class='fa fa-heart text-red'></i> 100", ['/hospital'], ['title' => 'Health']); ?>
-                                        </li>
+                                        <li><?= Html::a("<i class='fa fa-gbp text-green'></i> 123,456,789", ['/bank'], ['title' => 'Money']); ?></li>
+                                        <li><?= Html::a("<i class='fa fa-bullseye text-teal'></i> 123,456,789", ['/bf'], ['title' => 'Bullets']); ?></li>
+                                        <li><?= Html::a("<i class='fa fa-diamond' style='color:yellow'></i> 50,000", ['/diamond'], ['title' => 'Diamonds']); ?></li>
+                                        <li><?= Html::a("<i class='fa fa-heart text-red'></i> 100", ['/hospital'], ['title' => 'Health']); ?></li>
                                     </ul>
                                 </div>
 
@@ -129,6 +121,7 @@ AppAsset::register($this);
                                                 </li>
                                             </ul>
                                         </li>
+                                        <li><?= Html::a("<i class='fa fa-dashboard'></i>", ['/admin'], ['title' => 'Admin', 'target' => '_blank']); ?></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -161,21 +154,27 @@ AppAsset::register($this);
                                         </div>
                                     </div>
                                 </div>
-                                <!-- search form -->
                                 <!-- <form action="#" method="get" class="sidebar-form">
                                     <div class="input-group">
-                                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                                        <input type="text" name="q" class="form-control" placeholder="Search for Player..." style="
+                                            background: rgba(255,255,255,0.1);
+                                            border: none;
+                                            color: #EEE;
+                                        ">
                                         <span class="input-group-btn">
-                                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                            <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="
+                                            background: rgba(255,255,255,0.2);
+                                            color: #EEE;
+                                        "><i class="fa fa-search"></i></button>
                                         </span>
                                     </div>
                                 </form> -->
-                                <!-- /.search form -->
                                 <!-- sidebar menu: : style can be found in sidebar.less -->
                                 <ul class="sidebar-menu" style="overflow: hidden;">
                                     <!-- <li class="header">SECTION HEADER</li> -->
                                     <li id="menu-forum"><?= Html::a('<i class="fa fa-comments"></i> <span>FORUMS</span>', ['/forum']); ?></li>
-                                    <li class="treeview" id="treeview-gameplay">
+                                    <li id="menu-forum"><?= Html::a('<i class="fa fa-balance-scale"></i> <span>MARKETPLACE</span>', ['/market']); ?></li>
+                                    <li class="treeview active" id="treeview-gameplay">
                                         <a href="#">
                                             <i class="fa fa-star-half-o"></i> <span>GAMEPLAY</span> <i class="fa fa-angle-left pull-right"></i>
                                         </a>
@@ -184,13 +183,12 @@ AppAsset::register($this);
                                             <li id="menu-steal-vehicle"><?= Html::a('<i class="fa fa-circle-o"></i> Steal a Vehicle</a></li>', ['/steal/vehicle']); ?></li>
                                             <li id="menu-steal-aircraft"><?= Html::a('<i class="fa fa-circle-o"></i> Hijack an Aircraft</a></li>', ['/steal/aircraft']); ?></li>
                                             <li id="menu-operation"><?= Html::a('<i class="fa fa-circle-o"></i> Operation</a></li>', ['/operation']); ?></li>
-                                            <li id="menu-hunt"><?= Html::a('<i class="fa fa-circle-o"></i> Hunting</a></li>', ['/hunt']); ?></li>
+                                            <li id="menu-hunt"><?= Html::a('<i class="fa fa-circle-o"></i> Hunt &amp; Kill</a></li>', ['/hunt']); ?></li>
                                             <li id="menu-mission"><?= Html::a('<i class="fa fa-circle-o"></i> Missions</a></li>', ['/mission']); ?></li>
                                             <li id="menu-inventory"><?= Html::a('<i class="fa fa-circle-o"></i> Inventory</a></li>', ['/inventory']); ?></li>
                                             <li id="menu-garage"><?= Html::a('<i class="fa fa-circle-o"></i> Garage</a></li>', ['/vehicle']); ?></li>
                                             <li id="menu-hangar"><?= Html::a('<i class="fa fa-circle-o"></i> Hangar</a></li>', ['/aircraft']); ?></li>
                                             <li id="menu-prison"><?= Html::a('<i class="fa fa-circle-o"></i> Prison</a></li>', ['/prison']); ?></li>
-                                            <li id="menu-market"><?= Html::a('<i class="fa fa-circle-o"></i> Marketplace</a></li>', ['/market']); ?></li>
                                             <li id="menu-bf"><?= Html::a('<i class="fa fa-circle-o"></i> Bullet Factory</a></li>', ['/bf']); ?></li>
                                         </ul>
                                     </li>
@@ -207,9 +205,22 @@ AppAsset::register($this);
                                             <?php if(isset($isTheAccountAllowedToManageTheSquad)): ?>
                                                 <li id="menu-squad-manage"><?= Html::a('<i class="fa fa-circle-o"></i> Manage</a></li>', ['/squad/manage']); ?></li>
                                             <?php endif ?>
+                                            <li id="menu-squad-board"><?= Html::a('<i class="fa fa-circle-o"></i> Board</a></li>', ['/squad/board']); ?></li>
                                             <li id="menu-squad-safe"><?= Html::a('<i class="fa fa-circle-o"></i> Safe</a></li>', ['/squad/safe']); ?></li>
                                         <?php endif ?>
 
+                                        </ul>
+                                    </li>
+
+                                    <li class="treeview" id="treeview-gamble">
+                                        <a href="#">
+                                            <i class="fa fa-money"></i> <span>GAMBLING</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li id="menu-gamble-blackjack"><?= Html::a('<i class="fa fa-circle-o"></i> Blackjack</a></li>', ['/gamble/blackjack']); ?></li>
+                                            <li id="menu-gamble-racetrack"><?= Html::a('<i class="fa fa-circle-o"></i> Racetrack</a></li>', ['/gamble/racetrack']); ?></li>
+                                            <li id="menu-gamble-roulette"><?= Html::a('<i class="fa fa-circle-o"></i> Roulette</a></li>', ['/gamble/roulette']); ?></li>
+                                            <li id="menu-gamble-war"><?= Html::a('<i class="fa fa-circle-o"></i> War</a></li>', ['/gamble/war']); ?></li>
                                         </ul>
                                     </li>
 
@@ -226,17 +237,17 @@ AppAsset::register($this);
                                         </ul>
                                     </li>
 
-                                    <li class="treeview" id="treeview-gamble">
+                                    <li class="treeview" id="treeview-about">
                                         <a href="#">
-                                            <i class="fa fa-money"></i> <span>GAMBLING</span> <i class="fa fa-angle-left pull-right"></i>
+                                            <i class="fa fa-tags"></i> <span>ABOUT</span> <i class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu">
-                                            <li id="menu-gamble-blackjack"><?= Html::a('<i class="fa fa-circle-o"></i> Blackjack</a></li>', ['/gamble/blackjack']); ?></li>
-                                            <li id="menu-gamble-racetrack"><?= Html::a('<i class="fa fa-circle-o"></i> Racetrack</a></li>', ['/gamble/racetrack']); ?></li>
-                                            <li id="menu-gamble-roulette"><?= Html::a('<i class="fa fa-circle-o"></i> Roulette</a></li>', ['/gamble/roulette']); ?></li>
-                                            <li id="menu-gamble-war"><?= Html::a('<i class="fa fa-circle-o"></i> War</a></li>', ['/gamble/war']); ?></li>
+                                            <li id="menu-about-helpdesk"><?= Html::a('<i class="fa fa-circle-o"></i> Helpdesk</a></li>', ['/helpdesk']); ?></li>
+                                            <li id="menu-about-wiki"><?= Html::a('<i class="fa fa-circle-o"></i> Wiki</a></li>', ['/wiki']); ?></li>
+                                            <li id="menu-about-tos"><?= Html::a('<i class="fa fa-circle-o"></i> Terms of Service</a></li>', ['/about/tos']); ?></li>
                                         </ul>
                                     </li>
+                                    <li id="menu-logout"><?= Html::a('<i class="fa fa-sign-out"></i> <span>LOGOUT</span>', ['/public/logout']); ?></li>
                                 </ul>
                             </section>
                             <!-- /.sidebar -->
