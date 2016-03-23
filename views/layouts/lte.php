@@ -59,19 +59,19 @@ AppAsset::register($this);
                                     <span class="sr-only">Toggle navigation</span>
                                 </a>
 
-                                <div class="navbar-custom-menu">
+                                <div class="navbar-custom-menu hidden-xs">
                                     <ul class="nav navbar-nav">
-                                        <li style="background: rgba(0, 166, 90, 0.03);">
-                                            <?= Html::a("Money: $1337", ['/bank']); ?>
+                                        <li style="">
+                                            <?= Html::a("<i class='fa fa-dollar text-green'></i> 132,456,789", ['/bank'], ['title' => 'Money']); ?>
                                         </li>
-                                        <li style="background: rgba(136, 0, 239, 0.03);">
-                                            <?= Html::a("Bullets: 337", ['/bf']); ?>
+                                        <li style="">
+                                            <?= Html::a("<i class='fa fa-bullseye text-teal'></i> 132,456,789", ['/bf'], ['title' => 'Bullets']); ?>
                                         </li>
-                                        <li style="background: rgba(243, 156, 18, 0.03);">
-                                            <?= Html::a("Gold: 7", ['/gold']); ?>
+                                        <li style="">
+                                            <?= Html::a("<i class='fa fa-diamond text-yellow'></i> 50,000", ['/diamond'], ['title' => 'Diamonds']); ?>
                                         </li>
-                                        <li style="background: rgba(221, 75, 57, 0.03);">
-                                            <?= Html::a("Health: 100", ['/hospital']); ?>
+                                        <li style="">
+                                            <?= Html::a("<i class='fa fa-heart text-red'></i> 100", ['/hospital'], ['title' => 'Health']); ?>
                                         </li>
                                     </ul>
                                 </div>
@@ -174,7 +174,7 @@ AppAsset::register($this);
                                 <!-- sidebar menu: : style can be found in sidebar.less -->
                                 <ul class="sidebar-menu" style="overflow: hidden;">
                                     <!-- <li class="header">SECTION HEADER</li> -->
-                                    <li id="menu-forum"><?= Html::a('<i class="fa fa-comments"></i> <span>Forums</span>', ['/forum']); ?></li>
+                                    <li id="menu-forum"><?= Html::a('<i class="fa fa-comments"></i> <span>FORUMS</span>', ['/forum']); ?></li>
                                     <li class="treeview" id="treeview-gameplay">
                                         <a href="#">
                                             <i class="fa fa-star-half-o"></i> <span>GAMEPLAY</span> <i class="fa fa-angle-left pull-right"></i>
@@ -191,15 +191,50 @@ AppAsset::register($this);
                                             <li id="menu-hangar"><?= Html::a('<i class="fa fa-circle-o"></i> Hangar</a></li>', ['/aircraft']); ?></li>
                                             <li id="menu-prison"><?= Html::a('<i class="fa fa-circle-o"></i> Prison</a></li>', ['/prison']); ?></li>
                                             <li id="menu-market"><?= Html::a('<i class="fa fa-circle-o"></i> Marketplace</a></li>', ['/market']); ?></li>
+                                            <li id="menu-bf"><?= Html::a('<i class="fa fa-circle-o"></i> Bullet Factory</a></li>', ['/bf']); ?></li>
                                         </ul>
                                     </li>
+
+                                    <li class="treeview" id="treeview-squad">
+                                        <a href="#">
+                                            <i class="fa fa-users"></i> <span>SQUAD</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                        <?php if (isset($ifTheAccountisNotInASquad)): ?>
+                                            <li id="menu-squad-apply"><?= Html::a('<i class="fa fa-circle-o"></i> Apply</a></li>', ['/squad/apply']); ?></li>
+                                        <?php else: ?>
+                                            <li id="menu-squad"><?= Html::a('<i class="fa fa-circle-o"></i> Overview</a></li>', ['/squad/view']); ?></li>
+                                            <?php if(isset($isTheAccountAllowedToManageTheSquad)): ?>
+                                                <li id="menu-squad-manage"><?= Html::a('<i class="fa fa-circle-o"></i> Manage</a></li>', ['/squad/manage']); ?></li>
+                                            <?php endif ?>
+                                            <li id="menu-squad-safe"><?= Html::a('<i class="fa fa-circle-o"></i> Safe</a></li>', ['/squad/safe']); ?></li>
+                                        <?php endif ?>
+
+                                        </ul>
+                                    </li>
+
                                     <li class="treeview" id="treeview-stats">
                                         <a href="#">
                                             <i class="fa fa-trophy"></i> <span>STATISTICS</span> <i class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu">
+                                            <li id="menu-stats-online"><?= Html::a('<i class="fa fa-circle-o"></i> Online Players</a></li>', ['/stats/online']); ?></li>
+                                            <li id="menu-stats-location"><?= Html::a('<i class="fa fa-circle-o"></i> Location Stats</a></li>', ['/stats/location']); ?></li>
+                                            <li id="menu-stats-squad"><?= Html::a('<i class="fa fa-circle-o"></i> Squad Stats</a></li>', ['/stats/squad']); ?></li>
                                             <li id="menu-stats-personal"><?= Html::a('<i class="fa fa-circle-o"></i> Your Stats</a></li>', ['/stats/personal']); ?></li>
                                             <li id="menu-stats-round"><?= Html::a('<i class="fa fa-circle-o"></i> Round Stats</a></li>', ['/stats/round']); ?></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="treeview" id="treeview-gamble">
+                                        <a href="#">
+                                            <i class="fa fa-money"></i> <span>GAMBLING</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li id="menu-gamble-blackjack"><?= Html::a('<i class="fa fa-circle-o"></i> Blackjack</a></li>', ['/gamble/blackjack']); ?></li>
+                                            <li id="menu-gamble-racetrack"><?= Html::a('<i class="fa fa-circle-o"></i> Racetrack</a></li>', ['/gamble/racetrack']); ?></li>
+                                            <li id="menu-gamble-roulette"><?= Html::a('<i class="fa fa-circle-o"></i> Roulette</a></li>', ['/gamble/roulette']); ?></li>
+                                            <li id="menu-gamble-war"><?= Html::a('<i class="fa fa-circle-o"></i> War</a></li>', ['/gamble/war']); ?></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -209,10 +244,30 @@ AppAsset::register($this);
 
                         <div class="content-wrapper">
                             <section class="content">
-                                <div class="alert alert-info">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <strong>Title!</strong> Alert body ...
-                                </div>
+                                <?php if (Yii::$app->session->hasFlash('success')): ?> 
+                                    <div class="alert alert-success">
+                                        <?php echo Yii::$app->session->getFlash('success'); ?>
+                                    </div>
+                                <?php endif ?>
+
+                                <?php if (Yii::$app->session->hasFlash('danger')): ?> 
+                                    <div class="alert alert-danger">
+                                        <?php echo Yii::$app->session->getFlash('danger'); ?>
+                                    </div>
+                                <?php endif ?>
+
+                                <?php if (Yii::$app->session->hasFlash('warning')): ?> 
+                                    <div class="alert alert-warning">
+                                        <?php echo Yii::$app->session->getFlash('warning'); ?>
+                                    </div>
+                                <?php endif ?>
+
+                                <?php if (Yii::$app->session->hasFlash('info')): ?> 
+                                    <div class="alert alert-info">
+                                        <?php echo Yii::$app->session->getFlash('info'); ?>
+                                    </div>
+                                <?php endif ?>
+
                                 <?= $content ?>
                             </section>
                         </div>

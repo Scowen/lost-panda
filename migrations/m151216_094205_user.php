@@ -18,7 +18,7 @@ class m151216_094205_user extends Migration
                 'created'       => $this->timestamp()->notNull(),
                 'admin'         => $this->integer()->notNull()->defaultValue(10),
                 'email'         => $this->string(128),
-                'gold'          => $this->double()->notNull()->defaultValue(0),
+                'diamond'       => $this->double()->notNull()->defaultValue(0),
             ),
             implode(' ', array(
                 'ENGINE          = InnoDB',

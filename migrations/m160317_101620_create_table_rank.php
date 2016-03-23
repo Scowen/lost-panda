@@ -21,7 +21,7 @@ class m160317_101620_create_table_rank extends Migration
                 'time_prison'                   => $this->integer()->notNull()->defaultValue(30),
                 'reward_money'                  => $this->integer(),
                 'reward_bullets'                => $this->integer(),
-                'reward_gold'                   => $this->integer(),
+                'reward_diamond'                => $this->integer(),
                 'reward_weapon'                 => $this->integer(),
                 'reward_vehicle'                => $this->integer(),
                 'reward_aircraft'               => $this->integer(),
