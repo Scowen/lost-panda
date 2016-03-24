@@ -13,10 +13,10 @@ class m160324_134904_create_table_steal extends Migration
                 'id'                            => $this->primaryKey(),
                 'type'                          => $this->string()->notNull(),
                 'name'                          => $this->string()->notNull(),
-                'min_reward_money'              => $this->double()->notNull(),
-                'max_reward_money'              => $this->double()->notNull(),
-                'min_reward_bullet'             => $this->double()->notNull(),
-                'max_reward_bullet'             => $this->double()->notNull(),
+                'min_reward_money'              => $this->double(),
+                'max_reward_money'              => $this->double(),
+                'min_reward_bullet'             => $this->double(),
+                'max_reward_bullet'             => $this->double(),
                 'success_rate'                  => $this->integer()->notNull()->defaultValue(75),
                 'success_exp'                   => $this->integer()->notNull(),
                 'failure_exp'                   => $this->integer()->notNull(),
@@ -55,6 +55,7 @@ class m160324_134904_create_table_steal extends Migration
     public function down()
     {   
         $this->dropTable("{{steal}}");
+        $this->dropTable("{{steal_drop_table}}");
     }
 
     /*
