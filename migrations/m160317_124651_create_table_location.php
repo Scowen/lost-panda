@@ -28,8 +28,6 @@ class m160317_124651_create_table_location extends Migration
     public function down()
     {   
         $this->dropTable("{{location}}");
-
-        return true;
     }
 
     /*

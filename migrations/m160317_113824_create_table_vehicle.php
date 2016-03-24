@@ -31,8 +31,6 @@ class m160317_113824_create_table_vehicle extends Migration
     public function down()
     {   
         $this->dropTable("{{vehicle}}");
-
-        return true;
     }
 
     /*

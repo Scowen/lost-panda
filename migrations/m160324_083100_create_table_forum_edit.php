@@ -3,20 +3,19 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m160317_113955_create_table_aircraft extends Migration
+class m160324_083100_create_table_forum_edit extends Migration
 {
     public function up()
     {
         $this->createTable(
-            '{{aircraft}}',
+            '{{forum_edit}}',
             array(
                 'id'                            => $this->primaryKey(),
-                'name'                          => $this->string(30)->notNull(),
+                'post'                          => $this->integer(),
+                'account'                       => $this->integer()->notNull(),
                 'created'                       => $this->timestamp()->notNull(),
-                'price'                         => $this->double()->notNull(),
-                'fly_time'                      => $this->integer()->notNull()->defaultValue(1),
-                'capacity'                      => $this->integer()->notNull(),
-                'image'                         => $this->string(),
+                'content_old'                   => $this->text()->notNull(),
+                'content_new'                   => $this->text()->notNull(),
             ),
             implode(' ', array(
                 'ENGINE          = InnoDB',
@@ -30,7 +29,7 @@ class m160317_113955_create_table_aircraft extends Migration
 
     public function down()
     {   
-        $this->dropTable("{{aircraft}}");
+        $this->dropTable("{{forum_edit}}");
     }
 
     /*

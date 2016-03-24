@@ -3,20 +3,18 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m160317_113955_create_table_aircraft extends Migration
+class m160324_110410_create_table_property_auction_bid extends Migration
 {
     public function up()
     {
         $this->createTable(
-            '{{aircraft}}',
+            '{{property_auction_bid}}',
             array(
                 'id'                            => $this->primaryKey(),
-                'name'                          => $this->string(30)->notNull(),
+                'account'                       => $this->integer()->notNull(),
+                'auction'                       => $this->integer()->notNull(),
+                'amount'                        => $this->double()->notNull(),
                 'created'                       => $this->timestamp()->notNull(),
-                'price'                         => $this->double()->notNull(),
-                'fly_time'                      => $this->integer()->notNull()->defaultValue(1),
-                'capacity'                      => $this->integer()->notNull(),
-                'image'                         => $this->string(),
             ),
             implode(' ', array(
                 'ENGINE          = InnoDB',
@@ -30,7 +28,7 @@ class m160317_113955_create_table_aircraft extends Migration
 
     public function down()
     {   
-        $this->dropTable("{{aircraft}}");
+        $this->dropTable("{{property_auction_bid}}");
     }
 
     /*

@@ -104,9 +104,27 @@ li.header {
 }
 
 .sidebar-menu>li:hover, .sidebar-menu>li.active {
-    background: rgba(51, 51, 51, 0.4);
+    background: rgba(40, 40, 40, 0.4);
 }
 
 .navbar-custom-menu>.navbar-nav>li>.dropdown-menu {
     left: 0 !important;
+}
+
+.treeview span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 0.92em;
+}
+
+.treeview li a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.7em;
+}
+
+#player-stats {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
 }

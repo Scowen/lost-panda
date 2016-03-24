@@ -31,6 +31,7 @@ AppAsset::register($this);
         <title>Lost Panda :: <?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
         <style>
             body {
                 background: url("<?php echo Yii::$app->request->baseUrl; ?>/images/bg.png") no-repeat center center fixed;
@@ -60,7 +61,7 @@ AppAsset::register($this);
                                 </a>
 
                                 <div class="navbar-custom-menu hidden-xs">
-                                    <ul class="nav navbar-nav">
+                                    <ul class="nav navbar-nav" id="player-stats">
                                         <li><?= Html::a("<i class='fa fa-gbp text-green'></i> 123,456,789", ['/bank'], ['title' => 'Money']); ?></li>
                                         <li><?= Html::a("<i class='fa fa-bullseye text-teal'></i> 123,456,789", ['/bf'], ['title' => 'Bullets']); ?></li>
                                         <li><?= Html::a("<i class='fa fa-diamond' style='color:yellow'></i> 50,000", ['/diamond'], ['title' => 'Diamonds']); ?></li>
@@ -173,7 +174,6 @@ AppAsset::register($this);
                                 <ul class="sidebar-menu" style="overflow: hidden;">
                                     <!-- <li class="header">SECTION HEADER</li> -->
                                     <li id="menu-forum"><?= Html::a('<i class="fa fa-comments"></i> <span>FORUMS</span>', ['/forum']); ?></li>
-                                    <li id="menu-forum"><?= Html::a('<i class="fa fa-balance-scale"></i> <span>MARKETPLACE</span>', ['/market']); ?></li>
                                     <li class="treeview active" id="treeview-gameplay">
                                         <a href="#">
                                             <i class="fa fa-star-half-o"></i> <span>GAMEPLAY</span> <i class="fa fa-angle-left pull-right"></i>
@@ -193,6 +193,17 @@ AppAsset::register($this);
                                         </ul>
                                     </li>
 
+                                    <li class="treeview" id="treeview-market">
+                                        <a href="#">
+                                            <i class="fa fa-balance-scale"></i> <span>MARKETPLACE</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li id="menu-market-item"><?= Html::a('<i class="fa fa-circle-o"></i> Item Market <span class="badge pull-right">1</span></a></li>', ['/market/item']); ?></li>
+                                            <li id="menu-market-property"><?= Html::a('<i class="fa fa-circle-o"></i> Property Auction <span class="badge pull-right">1</span></a></li>', ['/market/property']); ?></li>
+                                            <li id="menu-market-diamond"><?= Html::a('<i class="fa fa-circle-o"></i> Diamond Exchange</a></li>', ['/market/diamond']); ?></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="treeview" id="treeview-squad">
                                         <a href="#">
                                             <i class="fa fa-users"></i> <span>SQUAD</span> <i class="fa fa-angle-left pull-right"></i>
@@ -209,6 +220,17 @@ AppAsset::register($this);
                                             <li id="menu-squad-safe"><?= Html::a('<i class="fa fa-circle-o"></i> Safe</a></li>', ['/squad/safe']); ?></li>
                                         <?php endif ?>
 
+                                        </ul>
+                                    </li>
+
+                                    <li class="treeview" id="treeview-account">
+                                        <a href="#">
+                                            <i class="fa fa-user"></i> <span>PERSONAL</span> <i class="fa fa-angle-left pull-right"></i>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                            <li id="menu-account-profile"><?= Html::a('<i class="fa fa-circle-o"></i> Profile</a></li>', ['/account/profile']); ?></li>
+                                            <li id="menu-account-inbox"><?= Html::a('<i class="fa fa-circle-o"></i> Inbox</a></li>', ['/account/inbox']); ?></li>
+                                            <li id="menu-account-settings"><?= Html::a('<i class="fa fa-circle-o"></i> Settings</a></li>', ['/account/settings']); ?></li>
                                         </ul>
                                     </li>
 
@@ -232,14 +254,16 @@ AppAsset::register($this);
                                             <li id="menu-stats-online"><?= Html::a('<i class="fa fa-circle-o"></i> Online Players</a></li>', ['/stats/online']); ?></li>
                                             <li id="menu-stats-location"><?= Html::a('<i class="fa fa-circle-o"></i> Location Stats</a></li>', ['/stats/location']); ?></li>
                                             <li id="menu-stats-squad"><?= Html::a('<i class="fa fa-circle-o"></i> Squad Stats</a></li>', ['/stats/squad']); ?></li>
-                                            <li id="menu-stats-personal"><?= Html::a('<i class="fa fa-circle-o"></i> Your Stats</a></li>', ['/stats/personal']); ?></li>
-                                            <li id="menu-stats-round"><?= Html::a('<i class="fa fa-circle-o"></i> Round Stats</a></li>', ['/stats/round']); ?></li>
+                                            <li id="menu-stats-account"><?= Html::a('<i class="fa fa-circle-o"></i> Your Stats</a></li>', ['/stats/account']); ?></li>
+                                            <li id="menu-stats-first"><?= Html::a('<i class="fa fa-circle-o"></i> Round Firsts</a></li>', ['/stats/first']); ?></li>
+                                            <li id="menu-stats-recent"><?= Html::a('<i class="fa fa-circle-o"></i> Round Recents</a></li>', ['/stats/recent']); ?></li>
+                                            <li id="menu-stats-best"><?= Html::a('<i class="fa fa-circle-o"></i> Round Bests</a></li>', ['/stats/best']); ?></li>
                                         </ul>
                                     </li>
 
                                     <li class="treeview" id="treeview-about">
                                         <a href="#">
-                                            <i class="fa fa-tags"></i> <span>ABOUT</span> <i class="fa fa-angle-left pull-right"></i>
+                                            <i class="fa fa-tags"></i> <span>ABOUT &amp; HELP</span> <i class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu">
                                             <li id="menu-about-helpdesk"><?= Html::a('<i class="fa fa-circle-o"></i> Helpdesk</a></li>', ['/helpdesk']); ?></li>

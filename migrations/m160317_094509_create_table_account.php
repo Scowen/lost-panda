@@ -16,6 +16,8 @@ class m160317_094509_create_table_account extends Migration
                 'created'               => $this->timestamp()->notNull(),
                 'last_active'           => $this->integer(),
                 'health'                => $this->integer(3)->notNull()->defaultValue(100),
+                'profile'               => $this->text(),
+                'hidden'                => $this->boolean()->notNull()->defaultValue(false),
                 'squad'                 => $this->integer(),
                 'money'                 => $this->double()->notNull()->defaultValue(0),
                 'bullets'               => $this->double()->notNull()->defaultValue(0),
@@ -44,8 +46,6 @@ class m160317_094509_create_table_account extends Migration
     public function down()
     {   
         $this->dropTable("{{account}}");
-
-        return true;
     }
 
     /*

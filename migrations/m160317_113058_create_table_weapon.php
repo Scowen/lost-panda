@@ -31,8 +31,6 @@ class m160317_113058_create_table_weapon extends Migration
     public function down()
     {   
         $this->dropTable("{{weapon}}");
-
-        return true;
     }
 
     /*

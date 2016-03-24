@@ -37,8 +37,6 @@ class m160317_103350_create_table_rank_prison extends Migration
     public function down()
     {   
         $this->dropTable("{{rank_prison}}");
-
-        return true;
     }
 
     /*

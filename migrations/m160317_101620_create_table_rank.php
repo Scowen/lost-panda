@@ -12,8 +12,13 @@ class m160317_101620_create_table_rank extends Migration
             array(
                 'id'                            => $this->primaryKey(),
                 'name'                          => $this->string(30)->notNull(),
+                'image'                         => $this->string(256),
                 'created'                       => $this->timestamp()->notNull(),
-                'experience_required'           => $this->double()->notNull()->defaultValue(0),
+                'required_experience'           => $this->double()->notNull()->defaultValue(0),
+                'required_prison_experience'    => $this->double(),
+                'required_total_kills'          => $this->double(),
+                'required_kill_experience'      => $this->double(),
+                'required_missions'             => $this->integer(),
                 'offence_multiplier'            => $this->integer()->notNull()->defaultValue(1),
                 'defence_multiplier'            => $this->integer()->notNull()->defaultValue(1),
                 'success_multiplier'            => $this->integer()->notNull()->defaultValue(1),
@@ -39,8 +44,6 @@ class m160317_101620_create_table_rank extends Migration
     public function down()
     {   
         $this->dropTable("{{rank}}");
-
-        return true;
     }
 
     /*

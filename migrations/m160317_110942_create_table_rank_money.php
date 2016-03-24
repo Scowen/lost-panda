@@ -28,8 +28,6 @@ class m160317_110942_create_table_rank_money extends Migration
     public function down()
     {   
         $this->dropTable("{{rank_money}}");
-
-        return true;
     }
     /*
     // Use safeUp/safeDown to run migration code within a transaction

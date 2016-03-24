@@ -33,7 +33,5 @@ class m151216_094205_user extends Migration
     public function down()
     {   
         $this->dropTable("{{user}}");
-
-        return true;
     }
 }
