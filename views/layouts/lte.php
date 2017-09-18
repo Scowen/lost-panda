@@ -1,23 +1,24 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+    /* @var $this \yii\web\View */
+    /* @var $content string */
 
-use yii\web\HttpException;
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+    use yii\web\HttpException;
+    use yii\helpers\Html;
+    use yii\bootstrap\Nav;
+    use yii\bootstrap\NavBar;
+    use yii\widgets\Breadcrumbs;
+    use app\assets\AppAsset;
 
-$user = Yii::$app->user->getIdentity();
+    $user = Yii::$app->user->getIdentity();
+    $account = $user->account;
 
-$profileImage = Yii::$app->request->baseurl . "/images/profile_image_holder.png";
+    $profileImage = Yii::$app->request->baseurl . "/images/profile_image_holder.png";
 
-$controllerName = Yii::$app->controller->id;
-$actionName = Yii::$app->controller->action->id;
+    $controllerName = Yii::$app->controller->id;
+    $actionName = Yii::$app->controller->action->id;
 
-AppAsset::register($this);
+    AppAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
@@ -62,66 +63,71 @@ AppAsset::register($this);
 
                                 <div class="navbar-custom-menu hidden-xs">
                                     <ul class="nav navbar-nav" id="player-stats">
-                                        <li><?= Html::a("<i class='fa fa-gbp text-green'></i> 123,456,789", ['/bank'], ['title' => 'Money']); ?></li>
-                                        <li><?= Html::a("<i class='fa fa-bullseye text-teal'></i> 123,456,789", ['/bf'], ['title' => 'Bullets']); ?></li>
-                                        <li><?= Html::a("<i class='fa fa-diamond' style='color:yellow'></i> 50,000", ['/diamond'], ['title' => 'Diamonds']); ?></li>
-                                        <li><?= Html::a("<i class='fa fa-heart text-red'></i> 100", ['/hospital'], ['title' => 'Health']); ?></li>
+                                        <?php if ($account): ?>
+                                            <li><?= Html::a("<i class='fa fa-gbp text-green'></i> " . number_format($account->money), ['/bank'], ['title' => 'Money']); ?></li>
+                                            <li><?= Html::a("<i class='fa fa-bullseye text-teal'></i> " . number_format($account->bullets), ['/bf'], ['title' => 'Bullets']); ?></li>
+                                            <li><?= Html::a("<i class='fa fa-heart text-red'></i> " . $account->health, ['/hospital'], ['title' => 'Health']); ?></li>
+                                        <?php endif ?>
+                                        <li><?= Html::a("<i class='fa fa-diamond' style='color:yellow'></i> " . $user->diamond, ['/diamond'], ['title' => 'Diamonds']); ?></li>
                                     </ul>
                                 </div>
 
                                 <!-- Navbar Right Menu -->
                                 <div class="navbar-custom-menu pull-left">
                                     <ul class="nav navbar-nav">
-                                        <!-- Messages: style can be found in dropdown.less-->
-                                        <li class="dropdown messages-menu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="fa fa-envelope-o"></i>
-                                                <span class="label label-success">X</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="header">You have X messages</li>
-                                                <li>
-                                                    <!-- inner menu: contains the actual data -->
-                                                    <ul class="menu">
-                                                        <!-- <li>
-                                                            <a href="#">
-                                                                <div class="pull-left">
-                                                                    <img src="<?= $profileImage ?>" class="img-circle" alt="User Image">
-                                                                </div>
-                                                                <h4>
-                                                                    AdminLTE Design Team
-                                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                                </h4>
-                                                                <p>Why not buy a new awesome theme?</p>
-                                                            </a>
-                                                        </li> -->
-                                                    </ul>
-                                                </li>
-                                                <li class="footer">
-                                                    <?= Html::a("Go to Inbox", ['inbox']); ?>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <!-- Notifications: style can be found in dropdown.less -->
-                                        <li class="dropdown notifications-menu">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                <i class="fa fa-bell-o"></i>
-                                                <span class="label label-warning">X</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li class="header">You have X notifications</li>
-                                                <li>
-                                                    <!-- inner menu: contains the actual data -->
-                                                    <!-- <ul class="menu">
-                                                        <li>
-                                                            <a href="#">
-                                                                Example
-                                                            </a>
-                                                        </li>
-                                                    </ul> -->
-                                                </li>
-                                            </ul>
-                                        </li>
+                                        <?php if ($account): ?>
+                                            <!-- Messages: style can be found in dropdown.less-->
+                                            <li class="dropdown messages-menu">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                    <span class="label label-success">X</span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="header">You have X messages</li>
+                                                    <li>
+                                                        <!-- inner menu: contains the actual data -->
+                                                        <ul class="menu">
+                                                            <!-- <li>
+                                                                <a href="#">
+                                                                    <div class="pull-left">
+                                                                        <img src="<?= $profileImage ?>" class="img-circle" alt="User Image">
+                                                                    </div>
+                                                                    <h4>
+                                                                        AdminLTE Design Team
+                                                                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                                                    </h4>
+                                                                    <p>Why not buy a new awesome theme?</p>
+                                                                </a>
+                                                            </li> -->
+                                                        </ul>
+                                                    </li>
+                                                    <li class="footer">
+                                                        <?= Html::a("Go to Inbox", ['inbox']); ?>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <!-- Notifications: style can be found in dropdown.less -->
+                                            <li class="dropdown notifications-menu">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-bell-o"></i>
+                                                    <span class="label label-warning">X</span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="header">You have X notifications</li>
+                                                    <li>
+                                                        <!-- inner menu: contains the actual data -->
+                                                        <!-- <ul class="menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    Example
+                                                                </a>
+                                                            </li>
+                                                        </ul> -->
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        <?php endif ?>
+
                                         <li><?= Html::a("<i class='fa fa-dashboard'></i>", ['/admin'], ['title' => 'Admin', 'target' => '_blank']); ?></li>
                                     </ul>
                                 </div>
@@ -279,7 +285,6 @@ AppAsset::register($this);
 
                         <div class="content-wrapper">
                             <section class="content">
-                                    <div class="alert alert-success">ASD</div>
                                 <?php if (Yii::$app->session->hasFlash('success')): ?> 
                                     <div class="alert alert-success">
                                         <?php echo Yii::$app->session->getFlash('success'); ?>
