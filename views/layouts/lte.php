@@ -25,7 +25,7 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no>
         <link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/favicon.ico" type="image/x-icon" />
         <?= Html::csrfMetaTags() ?>
         <title>Lost Panda :: <?= Html::encode($this->title) ?></title>
@@ -45,10 +45,10 @@ AppAsset::register($this);
 
         </style>
     </head>
-    <body class="hold-transition fixed sidebar-mini">
+    <body class="hold-transition fixed sidebar-mini" style="width:100%; padding: 0px">
         <?php $this->beginBody() ?>
-            <div class="row height-100" id="wrapper">
-                <div class="col-xs-12 col-lg-10 col-lg-offset-1 height-100" id="content-outer">
+            <div class="row height-100" id="wrapper" style="width:100%; margin-left:0px; top:0px; left: 0px; padding: 0px">
+                <div class="col-xs-12 col-lg-10 col-lg-offset-1 height-100" id="content-outer" style="padding: 0px;">
 
                     <div class="wrapper">
                         <header class="main-header">
@@ -56,7 +56,7 @@ AppAsset::register($this);
                             <!-- Header Navbar: style can be found in header.less -->
                             <nav class="navbar navbar-static-top" role="navigation">
                                 <!-- Sidebar toggle button-->
-                                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                                <a href="#" class="visible-xs sidebar-toggle" data-toggle="offcanvas" role="button">
                                     <span class="sr-only">Toggle navigation</span>
                                 </a>
 
@@ -129,7 +129,7 @@ AppAsset::register($this);
                         </header>
 
                         <!-- Left side column. contains the logo and sidebar -->
-                        <aside class="main-sidebar">
+                        <aside class="main-sidebar" style="position: absolute;">
                             <!-- sidebar: style can be found in sidebar.less -->
                             <section class="sidebar">
                                 <!-- Sidebar user panel -->
@@ -279,6 +279,7 @@ AppAsset::register($this);
 
                         <div class="content-wrapper">
                             <section class="content">
+                                    <div class="alert alert-success">ASD</div>
                                 <?php if (Yii::$app->session->hasFlash('success')): ?> 
                                     <div class="alert alert-success">
                                         <?php echo Yii::$app->session->getFlash('success'); ?>

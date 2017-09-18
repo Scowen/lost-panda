@@ -18,7 +18,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        // 'css/site.css',
         'css/twbs-addons.css',
         // 'third/bootstrap/css/bootstrap.min.css',
         'third/bootstrap-material-design-master/dist/css/ripples.min.css',
