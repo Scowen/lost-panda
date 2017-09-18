@@ -1,5 +1,5 @@
 <?php
-$this->title = "Dashboard";
+    $this->title = "Dashboard";
 ?>
 <div class="jumbotron">
     <div class="container">

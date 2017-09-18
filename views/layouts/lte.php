@@ -144,21 +144,23 @@
                                         <img src="<?= $profileImage ?>" class="img-circle" alt="User Image">
                                     </div>
                                     <div class="pull-left info">
-                                        <p><?= $user->username ?></p>
-                                        <div class="row">
-                                            <div class="col-xs-8">
-                                                <?= Html::a("Civilian", ['/rank']); ?>
+                                        <?php if ($account): ?>
+                                            <p><?= $account->name ?></p>
+                                            <div class="row">
+                                                <div class="col-xs-8">
+                                                    <?= Html::a("Civilian", ['/rank']); ?>
+                                                </div>
+                                                <div class="col-xs-4 text-right" style="color: #DDD">
+                                                    45%
+                                                </div>
                                             </div>
-                                            <div class="col-xs-4 text-right" style="color: #DDD">
-                                                45%
+                                            <div class="row">
+                                                <div class="col-xs-12" style="padding-top:5px; padding-left: 15px; padding-right: 15px">
+                                                    <div style="height:1px; background:rgba(0, 166, 90, 0.8); float:left; width:45%;"></div>
+                                                    <div style="height:1px; background:rgba(51, 51, 51, 0.8); float:left; width:55%;"></div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-12" style="padding-top:5px; padding-left: 15px; padding-right: 15px">
-                                                <div style="height:1px; background:rgba(0, 166, 90, 0.8); float:left; width:45%;"></div>
-                                                <div style="height:1px; background:rgba(51, 51, 51, 0.8); float:left; width:55%;"></div>
-                                            </div>
-                                        </div>
+                                        <?php endif ?>
                                     </div>
                                 </div>
                                 <!-- <form action="#" method="get" class="sidebar-form">
@@ -180,54 +182,56 @@
                                 <ul class="sidebar-menu" style="overflow: hidden;">
                                     <!-- <li class="header">SECTION HEADER</li> -->
                                     <li id="menu-forum"><?= Html::a('<i class="fa fa-comments"></i> <span>FORUMS</span>', ['/forum']); ?></li>
-                                    <li class="treeview active" id="treeview-gameplay">
-                                        <a href="#">
-                                            <i class="fa fa-star-half-o"></i> <span>GAMEPLAY</span> <i class="fa fa-angle-left pull-right"></i>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li id="menu-steal-weapon"><?= Html::a('<i class="fa fa-circle-o"></i> Rob Munitions</a></li>', ['/steal/weapon']); ?></li>
-                                            <li id="menu-steal-vehicle"><?= Html::a('<i class="fa fa-circle-o"></i> Steal a Vehicle</a></li>', ['/steal/vehicle']); ?></li>
-                                            <li id="menu-steal-aircraft"><?= Html::a('<i class="fa fa-circle-o"></i> Hijack an Aircraft</a></li>', ['/steal/aircraft']); ?></li>
-                                            <li id="menu-operation"><?= Html::a('<i class="fa fa-circle-o"></i> Operation</a></li>', ['/operation']); ?></li>
-                                            <li id="menu-hunt"><?= Html::a('<i class="fa fa-circle-o"></i> Hunt &amp; Kill</a></li>', ['/hunt']); ?></li>
-                                            <li id="menu-mission"><?= Html::a('<i class="fa fa-circle-o"></i> Missions</a></li>', ['/mission']); ?></li>
-                                            <li id="menu-inventory"><?= Html::a('<i class="fa fa-circle-o"></i> Inventory</a></li>', ['/inventory']); ?></li>
-                                            <li id="menu-garage"><?= Html::a('<i class="fa fa-circle-o"></i> Garage</a></li>', ['/vehicle']); ?></li>
-                                            <li id="menu-hangar"><?= Html::a('<i class="fa fa-circle-o"></i> Hangar</a></li>', ['/aircraft']); ?></li>
-                                            <li id="menu-prison"><?= Html::a('<i class="fa fa-circle-o"></i> Prison</a></li>', ['/prison']); ?></li>
-                                            <li id="menu-bf"><?= Html::a('<i class="fa fa-circle-o"></i> Bullet Factory</a></li>', ['/bf']); ?></li>
-                                        </ul>
-                                    </li>
+                                    <?php if ($account): ?>
+                                        <li class="treeview active" id="treeview-gameplay">
+                                            <a href="#">
+                                                <i class="fa fa-star-half-o"></i> <span>GAMEPLAY</span> <i class="fa fa-angle-left pull-right"></i>
+                                            </a>
+                                            <ul class="treeview-menu">
+                                                <li id="menu-steal-weapon"><?= Html::a('<i class="fa fa-circle-o"></i> Rob Munitions</a></li>', ['/steal/weapon']); ?></li>
+                                                <li id="menu-steal-vehicle"><?= Html::a('<i class="fa fa-circle-o"></i> Steal a Vehicle</a></li>', ['/steal/vehicle']); ?></li>
+                                                <li id="menu-steal-aircraft"><?= Html::a('<i class="fa fa-circle-o"></i> Hijack an Aircraft</a></li>', ['/steal/aircraft']); ?></li>
+                                                <li id="menu-operation"><?= Html::a('<i class="fa fa-circle-o"></i> Operation</a></li>', ['/operation']); ?></li>
+                                                <li id="menu-hunt"><?= Html::a('<i class="fa fa-circle-o"></i> Hunt &amp; Kill</a></li>', ['/hunt']); ?></li>
+                                                <li id="menu-mission"><?= Html::a('<i class="fa fa-circle-o"></i> Missions</a></li>', ['/mission']); ?></li>
+                                                <li id="menu-inventory"><?= Html::a('<i class="fa fa-circle-o"></i> Inventory</a></li>', ['/inventory']); ?></li>
+                                                <li id="menu-garage"><?= Html::a('<i class="fa fa-circle-o"></i> Garage</a></li>', ['/vehicle']); ?></li>
+                                                <li id="menu-hangar"><?= Html::a('<i class="fa fa-circle-o"></i> Hangar</a></li>', ['/aircraft']); ?></li>
+                                                <li id="menu-prison"><?= Html::a('<i class="fa fa-circle-o"></i> Prison</a></li>', ['/prison']); ?></li>
+                                                <li id="menu-bf"><?= Html::a('<i class="fa fa-circle-o"></i> Bullet Factory</a></li>', ['/bf']); ?></li>
+                                            </ul>
+                                        </li>
 
-                                    <li class="treeview" id="treeview-market">
-                                        <a href="#">
-                                            <i class="fa fa-balance-scale"></i> <span>MARKETPLACE</span> <i class="fa fa-angle-left pull-right"></i>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li id="menu-market-item"><?= Html::a('<i class="fa fa-circle-o"></i> Item Market <span class="badge pull-right">1</span></a></li>', ['/market/item']); ?></li>
-                                            <li id="menu-market-property"><?= Html::a('<i class="fa fa-circle-o"></i> Property Auction <span class="badge pull-right">1</span></a></li>', ['/market/property']); ?></li>
-                                            <li id="menu-market-diamond"><?= Html::a('<i class="fa fa-circle-o"></i> Diamond Exchange</a></li>', ['/market/diamond']); ?></li>
-                                        </ul>
-                                    </li>
+                                        <li class="treeview" id="treeview-market">
+                                            <a href="#">
+                                                <i class="fa fa-balance-scale"></i> <span>MARKETPLACE</span> <i class="fa fa-angle-left pull-right"></i>
+                                            </a>
+                                            <ul class="treeview-menu">
+                                                <li id="menu-market-item"><?= Html::a('<i class="fa fa-circle-o"></i> Item Market <span class="badge pull-right">1</span></a></li>', ['/market/item']); ?></li>
+                                                <li id="menu-market-property"><?= Html::a('<i class="fa fa-circle-o"></i> Property Auction <span class="badge pull-right">1</span></a></li>', ['/market/property']); ?></li>
+                                                <li id="menu-market-diamond"><?= Html::a('<i class="fa fa-circle-o"></i> Diamond Exchange</a></li>', ['/market/diamond']); ?></li>
+                                            </ul>
+                                        </li>
 
-                                    <li class="treeview" id="treeview-squad">
-                                        <a href="#">
-                                            <i class="fa fa-users"></i> <span>SQUAD</span> <i class="fa fa-angle-left pull-right"></i>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                        <?php if (isset($ifTheAccountisNotInASquad)): ?>
-                                            <li id="menu-squad-apply"><?= Html::a('<i class="fa fa-circle-o"></i> Apply</a></li>', ['/squad/apply']); ?></li>
-                                        <?php else: ?>
-                                            <li id="menu-squad"><?= Html::a('<i class="fa fa-circle-o"></i> Overview</a></li>', ['/squad/view']); ?></li>
-                                            <?php if(isset($isTheAccountAllowedToManageTheSquad)): ?>
-                                                <li id="menu-squad-manage"><?= Html::a('<i class="fa fa-circle-o"></i> Manage</a></li>', ['/squad/manage']); ?></li>
+                                        <li class="treeview" id="treeview-squad">
+                                            <a href="#">
+                                                <i class="fa fa-users"></i> <span>SQUAD</span> <i class="fa fa-angle-left pull-right"></i>
+                                            </a>
+                                            <ul class="treeview-menu">
+                                            <?php if (isset($ifTheAccountisNotInASquad)): ?>
+                                                <li id="menu-squad-apply"><?= Html::a('<i class="fa fa-circle-o"></i> Apply</a></li>', ['/squad/apply']); ?></li>
+                                            <?php else: ?>
+                                                <li id="menu-squad"><?= Html::a('<i class="fa fa-circle-o"></i> Overview</a></li>', ['/squad/view']); ?></li>
+                                                <?php if(isset($isTheAccountAllowedToManageTheSquad)): ?>
+                                                    <li id="menu-squad-manage"><?= Html::a('<i class="fa fa-circle-o"></i> Manage</a></li>', ['/squad/manage']); ?></li>
+                                                <?php endif ?>
+                                                <li id="menu-squad-board"><?= Html::a('<i class="fa fa-circle-o"></i> Board</a></li>', ['/squad/board']); ?></li>
+                                                <li id="menu-squad-safe"><?= Html::a('<i class="fa fa-circle-o"></i> Safe</a></li>', ['/squad/safe']); ?></li>
                                             <?php endif ?>
-                                            <li id="menu-squad-board"><?= Html::a('<i class="fa fa-circle-o"></i> Board</a></li>', ['/squad/board']); ?></li>
-                                            <li id="menu-squad-safe"><?= Html::a('<i class="fa fa-circle-o"></i> Safe</a></li>', ['/squad/safe']); ?></li>
-                                        <?php endif ?>
 
-                                        </ul>
-                                    </li>
+                                            </ul>
+                                        </li>
+                                    <?php endif ?>
 
                                     <li class="treeview" id="treeview-account">
                                         <a href="#">
@@ -239,18 +243,20 @@
                                             <li id="menu-account-settings"><?= Html::a('<i class="fa fa-circle-o"></i> Settings</a></li>', ['/account/settings']); ?></li>
                                         </ul>
                                     </li>
-
-                                    <li class="treeview" id="treeview-gamble">
-                                        <a href="#">
-                                            <i class="fa fa-money"></i> <span>GAMBLING</span> <i class="fa fa-angle-left pull-right"></i>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li id="menu-gamble-blackjack"><?= Html::a('<i class="fa fa-circle-o"></i> Blackjack</a></li>', ['/gamble/blackjack']); ?></li>
-                                            <li id="menu-gamble-racetrack"><?= Html::a('<i class="fa fa-circle-o"></i> Racetrack</a></li>', ['/gamble/racetrack']); ?></li>
-                                            <li id="menu-gamble-roulette"><?= Html::a('<i class="fa fa-circle-o"></i> Roulette</a></li>', ['/gamble/roulette']); ?></li>
-                                            <li id="menu-gamble-war"><?= Html::a('<i class="fa fa-circle-o"></i> War</a></li>', ['/gamble/war']); ?></li>
-                                        </ul>
-                                    </li>
+                                    
+                                    <?php if ($account): ?>
+                                        <li class="treeview" id="treeview-gamble">
+                                            <a href="#">
+                                                <i class="fa fa-money"></i> <span>GAMBLING</span> <i class="fa fa-angle-left pull-right"></i>
+                                            </a>
+                                            <ul class="treeview-menu">
+                                                <li id="menu-gamble-blackjack"><?= Html::a('<i class="fa fa-circle-o"></i> Blackjack</a></li>', ['/gamble/blackjack']); ?></li>
+                                                <li id="menu-gamble-racetrack"><?= Html::a('<i class="fa fa-circle-o"></i> Racetrack</a></li>', ['/gamble/racetrack']); ?></li>
+                                                <li id="menu-gamble-roulette"><?= Html::a('<i class="fa fa-circle-o"></i> Roulette</a></li>', ['/gamble/roulette']); ?></li>
+                                                <li id="menu-gamble-war"><?= Html::a('<i class="fa fa-circle-o"></i> War</a></li>', ['/gamble/war']); ?></li>
+                                            </ul>
+                                        </li>
+                                    <?php endif ?>
 
                                     <li class="treeview" id="treeview-stats">
                                         <a href="#">

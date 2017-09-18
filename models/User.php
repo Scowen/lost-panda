@@ -164,7 +164,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function getAccount()
     {
         return Account::find()->where(['user' => $this->id])
-            ->andWhere(['>', 'health', 0])
+            ->andWhere(['active' => true])
             ->one();
     }
 }

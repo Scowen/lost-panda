@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property integer $user
  * @property string $name
- * @property string $created
+ * @property integer $created
  * @property integer $last_active
  * @property integer $health
  * @property string $profile
@@ -19,7 +19,9 @@ use Yii;
  * @property integer $banned_by
  * @property integer $banned_expiration
  * @property integer $hidden
+ * @property integer $active
  * @property integer $squad
+ * @property integer $location
  * @property double $money
  * @property double $bullets
  * @property double $experience
@@ -52,8 +54,7 @@ class Account extends \yii\db\ActiveRecord
     {
         return [
             [['user', 'name'], 'required'],
-            [['user', 'last_active', 'health', 'banned', 'banned_by', 'banned_expiration', 'hidden', 'squad', 'timer_steal_weapon', 'timer_steal_vehicle', 'timer_steal_aircraft', 'timer_operation', 'timer_mission', 'timer_rescue', 'timer_prison', 'timer_hospital', 'timer_fly', 'show_rankbar'], 'integer'],
-            [['created'], 'safe'],
+            [['user', 'created', 'last_active', 'health', 'banned', 'banned_by', 'banned_expiration', 'hidden', 'active', 'squad', 'location', 'timer_steal_weapon', 'timer_steal_vehicle', 'timer_steal_aircraft', 'timer_operation', 'timer_mission', 'timer_rescue', 'timer_prison', 'timer_hospital', 'timer_fly', 'show_rankbar'], 'integer'],
             [['profile'], 'string'],
             [['money', 'bullets', 'experience', 'experience_prison'], 'number'],
             [['name'], 'string', 'max' => 30],
@@ -79,7 +80,9 @@ class Account extends \yii\db\ActiveRecord
             'banned_by' => 'Banned By',
             'banned_expiration' => 'Banned Expiration',
             'hidden' => 'Hidden',
+            'active' => 'Active',
             'squad' => 'Squad',
+            'location' => 'Location',
             'money' => 'Money',
             'bullets' => 'Bullets',
             'experience' => 'Experience',

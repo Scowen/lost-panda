@@ -14,7 +14,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.6.0",
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
@@ -22,7 +22,11 @@
         "bower-asset/bootstrap": "@stable",
         "bower-asset/jquery-ui": "@stable",
         "bower-asset/jquery.inputmask": "@stable",
-        "bower-asset/punycode": "@stable"
+        "bower-asset/punycode": "@stable",
+        "kartik-v/yii2-mpdf": "*",
+        "kartik-v/yii2-widgets": "*",
+        "hiqdev/yii2-mfa": "*",
+        "2amigos/yii2-qrcode-helper" : "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
